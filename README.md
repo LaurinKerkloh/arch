@@ -129,7 +129,7 @@ Select the newly installed system in GRUB, log in using your defined credentials
 
 If GRUB is not shown, refer to [this article](https://wiki.archlinux.org/title/GRUB/EFI_examples#MSI) for help.
 
-Again, obtain the install scripts:
+Again, obtain the install scripts (when using wifi: use nmcli to connect to wifi again):
 
 ```shell
 git clone https://github.com/LaurinKerkloh/arch
