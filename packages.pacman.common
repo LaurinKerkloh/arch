@@ -103,11 +103,8 @@ xdg-desktop-portal-gtk
 # Programming languages
 cmake
 go
-jdk17-openjdk
 lua51
 luarocks
-openjdk17-doc
-openjdk17-src
 nodejs-lts-jod
 npm
 
