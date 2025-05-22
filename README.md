@@ -116,7 +116,7 @@ Adjust the values in `00_config.sh`.
 Then run the install script:
 
 ```shell
-./10-install.sh
+./10_install.sh
 ```
 
 After this script has finished executing, reboot:
@@ -143,7 +143,7 @@ The values in `00_config.sh` can be left unchanged as they are not needed for th
 Execute the post-install script:
 
 ```shell
-./20-post-install.sh
+./20_post-install.sh
 ```
 
 Log out of the system:
