@@ -71,9 +71,6 @@ install_packages() {
     if [[ "$package_manager" == "yay" ]]; then
         yay -S --needed --devel "${packages[@]}"
     fi
-    if [[ "$package_manager" == "cargo" ]]; then
-        cargo install "${packages[@]}"
-    fi
     if [[ "$package_manager" == "gem" ]]; then
         # gem update only works with a single gem at a time so we loop here
         for package in "${packages[@]}"; do
@@ -98,8 +95,6 @@ install_packages() {
 
 install_packages "pacman"
 install_packages "yay"
-rustup update
-install_packages "cargo"
 install_packages "gem"
 install_packages "go"
 install_packages "npm"

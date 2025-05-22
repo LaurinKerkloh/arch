@@ -110,7 +110,6 @@ openjdk17-doc
 openjdk17-src
 nodejs-lts-jod
 npm
-rustup
 
 # Language servers
 clang

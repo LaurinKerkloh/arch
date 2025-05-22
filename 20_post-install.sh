@@ -48,9 +48,6 @@ rbenv global 3.3.5
 rbenv rehash
 eval "$(rbenv init - zsh)"
 
-# Rust
-rustup default stable
-rustup component add rust-analyzer
 
 # Theming
 # Catppuccin TTY
