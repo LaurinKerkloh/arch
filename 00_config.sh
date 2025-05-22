@@ -3,8 +3,8 @@ export ARCH_INSTALL_BOOT_PARTITION="/dev/nvme0n1p1"
 export ARCH_INSTALL_ROOT_PARTITION="/dev/nvme0n1p2"
 
 # Adjust
-export ARCH_INSTALL_HOSTNAME="jolepc"
-export ARCH_INSTALL_USERNAME="jole"
+export ARCH_INSTALL_HOSTNAME="laurinpc"
+export ARCH_INSTALL_USERNAME="laurin"
 
 # Change
 export ARCH_INSTALL_ROOT_PARTITION_PASSWORD="password"

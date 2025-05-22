@@ -8,18 +8,18 @@ plymouth-theme-catppuccin-mocha-git
 qt5-styleplugins
 
 # Language servers
-jdtls
+# jdtls
 
 # Desktop applications
-zotero
+# zotero
 
 # reditus
 rbenv
 ruby-build
 
 # Misc
-upd72020x-fw
+# upd72020x-fw
 
 # Citrix
-icaclient
-hdx-realtime-media-engine
+# icaclient
+# hdx-realtime-media-engine

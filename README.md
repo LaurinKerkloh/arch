@@ -89,7 +89,7 @@ These are my partition layouts:
 | --------- | ------------ | ----------- | ------------ | -------------- |
 | 1         | default      | default     | 8300         | Arbitrary Data |
 
-### jolelaptop
+### laurinlaptop
 
 #### `/dev/nvme0n1` (Root and Home Partition)
 
@@ -105,7 +105,7 @@ The easiest way to obtain the scripts is by installing Git in the live environme
 ```shell
 pacman-key --init
 pacman -Sy git
-git clone https://github.com/drjole/arch
+git clone https://github.com/LaurinKerkloh/arch
 cd arch
 ```
 
@@ -132,7 +132,7 @@ If GRUB is not shown, refer to [this article](https://wiki.archlinux.org/title/G
 Again, obtain the install scripts:
 
 ```shell
-git clone https://github.com/drjole/arch
+git clone https://github.com/LaurinKerkloh/arch
 cd arch
 ```
 

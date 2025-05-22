@@ -29,7 +29,7 @@ zsh-completions
 zsh-syntax-highlighting
 
 # Xorg related packages
-# xorg is installed for each system independently because the xorg-xbacklight package is replaced by acpilight on jolelaptop
+# xorg is installed for each system independently because the xorg-xbacklight package is replaced by acpilight on laurinlaptop
 mesa
 lib32-mesa
 xorg-xinit
@@ -57,6 +57,7 @@ rofi
 xss-lock
 
 # Desktop applications
+keepassxc
 alacritty
 discord
 firefox
@@ -67,14 +68,11 @@ inkscape
 libreoffice-still
 network-manager-applet
 nextcloud-client
-obsidian
 pavucontrol
 redshift
 screenkey
 shotwell
 signal-desktop
-spotify-launcher
-syncthing
 thunar
 vlc
 zathura
@@ -132,25 +130,24 @@ docker-buildx
 docker-compose
 
 # TeX Live
-texlive
-texlive-langgerman
-biber
-ghostscript
-perl-yaml-tiny
-perl-file-homedir
+# texlive
+# texlive-langgerman
+# biber
+# ghostscript
+# perl-yaml-tiny
+# perl-file-homedir
 
 # reditus
-keepassxc
 mariadb-libs
 mkcert
 postgresql
 pre-commit
 
 # Printing and scanning
-hplip
-python-pyqt5
-python-pillow
-sane
+# hplip
+# python-pyqt5
+# python-pillow
+# sane
 
 # Libraries
 ant
