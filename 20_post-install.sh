@@ -48,7 +48,6 @@ rbenv global 3.3.5
 rbenv rehash
 eval "$(rbenv init - zsh)"
 
-
 # Theming
 # Catppuccin TTY
 sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT=/s/"$/ vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166 vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173 vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200"/' /etc/default/grub
@@ -83,23 +82,6 @@ END {
         else print file[i];
     }
 }' /etc/pam.d/login >/tmp/temp_file && sudo mv /tmp/temp_file /etc/pam.d/login
-
-# Citrix Workspace
-# cat <<EOF | sudo tee /usr/bin/pulseaudio >/dev/null
-# #!/bin/sh
-#
-# # https://wiki.archlinux.org/title/Citrix#Pipewire
-# if [ "$1" == "--version" ]; then
-#     pactl info | grep Server\ Name | sed -e "s/Server Name: //"
-# else
-#     echo "This is a dummy file for apps that check if pulseaudio is available by checking for the binary existing"
-# fi
-# EOF
-# sudo chmod +x /usr/bin/pulseaudio
-# sudo ln -s /usr/lib/libunwind.so /usr/lib/libunwind.so.1
-# mkdir -p $HOME/.ICAClient/cache
-# cp /opt/Citrix/ICAClient/config/{All_Regions,Trusted_Region,Unknown_Region,canonicalization,regions}.ini $HOME/.ICAClient/
-# echo "Set the webcam in ~/.ICAClient/wfclient.ini in the [WFClient] section: HDXWebCamDevice=/dev/video0"
 
 # Run the host-specific post-install script if it exists
 post_install_host="20_post-install.$(hostname).sh"
