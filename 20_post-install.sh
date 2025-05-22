@@ -23,9 +23,6 @@ sudo sed -i "/^MAKEFLAGS=/cMAKEFLAGS=\"-j$(nproc)\"" /etc/makepkg.conf
 # Enable the multilib repository
 sudo sed -i '/\[multilib\]/,/Include = \/etc\/pacman.d\/mirrorlist/s/^#//' /etc/pacman.conf
 
-# Enable the paccache timer for cleaning up the pacman cache weekly
-# sudo systemctl enable --now paccache.timer
-
 # Update the system
 sudo pacman --noconfirm -Syu
 
@@ -37,6 +34,9 @@ popd
 
 # Install all the packages
 ./install_packages.sh
+
+# Enable the paccache timer for cleaning up the pacman cache weekly
+sudo systemctl enable --now paccache.timer
 
 # Docker
 sudo systemctl enable --now docker
