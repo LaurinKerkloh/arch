@@ -56,6 +56,7 @@ picom
 rofi
 xss-lock
 
+
 # Desktop applications
 keepassxc
 alacritty
@@ -74,6 +75,7 @@ screenkey
 shotwell
 signal-desktop
 thunar
+thunar-volman
 vlc
 zathura
 zathura-pdf-poppler

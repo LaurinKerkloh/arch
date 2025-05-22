@@ -159,3 +159,4 @@ exit
 - Change origin of dotfiles repository to use SSH.
 - Setup catppuccin in Firefox using [this](https://github.com/catppuccin/firefox). I use the lavender flavor.
 - Setup catppuccin in Dark Reader using [this](https://github.com/catppuccin/dark-reader).
+- Configure [Thunar Volume Managaer](https://wiki.archlinux.org/title/Thunar#Thunar_Volume_Manager)
