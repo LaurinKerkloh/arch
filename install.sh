@@ -62,15 +62,6 @@ sudo pacman -S --noconfirm --needed zathura zathura-pdf-poppler \
     neovim fzf starship eza bat htop tmux man-db ripgrep fd lazygit jq unzip \
     pacman-contrib inetutils
 
-# Snapper and snap-pac
-sudo pacman -S --noconfirm --needed snapper
-if ! sudo snapper -c root get-config >/dev/null 2>&1 ; then
-    sudo snapper -c root create-config /
-fi
-sudo systemctl enable --now snapper-timeline.timer
-sudo systemctl enable --now snapper-cleanup.timer
-sudo pacman -S --noconfirm --needed snap-pac
-
 # yay
 if ! command -v yay >/dev/null 2>&1; then
     git clone https://aur.archlinux.org/yay.git /tmp/yay
@@ -157,6 +148,16 @@ sudo mkinitcpio -P
 if [[ -x "$(hostname).sh" ]]; then
     . "$(hostname).sh"
 fi
+
+# Snapper and snap-pac
+sudo pacman -S --noconfirm --needed snapper
+if ! sudo snapper -c root get-config >/dev/null 2>&1 ; then
+    sudo snapper -c root create-config /
+fi
+sudo systemctl enable --now snapper-timeline.timer
+sudo systemctl enable --now snapper-cleanup.timer
+sudo pacman -S --noconfirm --needed snap-pac
+
 
 # Done
 echo "All done! Now reboot and enjoy."
