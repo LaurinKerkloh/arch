@@ -18,26 +18,21 @@ if ! grep -Eq '^HOOKS=.*plymouth' /etc/mkinitcpio.conf; then
     echo "Couldn't add the Plymouth hook"
   fi
 
-  # Regenerate initramfs
-  sudo mkinitcpio -P
 fi
 
-for entry in /boot/loader/entries/*.conf; do
-  if [ -f "$entry" ]; then
-    # Skip fallback entries
-    if [[ "$(basename "$entry")" == *"fallback"* ]]; then
-      echo "Skipped: $(basename "$entry") (fallback entry)"
-      continue
-    fi
+line=$(cat /etc/kernel/cmdline)
+new="$line"
 
-    # Skip if splash it already present for some reason
-    if ! grep -q "splash" "$entry"; then
-      sudo sed -i '/^options/ s/$/ splash quiet/' "$entry"
-    else
-      echo "Skipped: $(basename "$entry") (splash already present)"
-    fi
+for arg in splash quiet; do
+  if ! grep -qE "(^|[[:space:]])${arg}([[:space:]]|$)" <<< "$new"; then
+    new="$new $arg"
   fi
 done
+
+echo "$new" | sudo tee /etc/kernel/cmdline >/dev/null
+
+# Regenerate initramfs
+sudo mkinitcpio -P
 
 sudo cp -r $HOME/.local/share/catppuccin-plymouth/themes/catppuccin-mocha/ /usr/share/plymouth/themes/
 sudo plymouth-set-default-theme -R catppuccin-mocha
