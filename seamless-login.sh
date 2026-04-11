@@ -50,7 +50,31 @@ if [ ! -x /usr/local/bin/seamless-login ]; then
 fi
 
 if [ ! -f /etc/systemd/system/seamless-login.service ]; then
-  sudo cp ./seamless-login.service /etc/systemd/system/seamless-login.service
+  sudo tee /etc/systemd/system/seamless-login.service <<EOF
+[Unit]
+Description=Seamless Auto-Login
+Conflicts=getty@tty1.service
+After=systemd-user-sessions.service getty@tty1.service plymouth-quit.service systemd-logind.service
+PartOf=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/seamless-login uwsm start -- hyprland.desktop
+Restart=always
+RestartSec=2
+User=$USER_NAME
+TTYPath=/dev/tty1
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
+StandardInput=tty
+StandardOutput=journal
+StandardError=journal+console
+PAMName=login
+
+[Install]
+WantedBy=graphical.target
+EOF
 fi
 
 if [ ! -f /etc/systemd/system/plymouth-quit.service.d/wait-for-graphical.conf ]; then

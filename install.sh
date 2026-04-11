@@ -60,7 +60,10 @@ sudo pacman -S --noconfirm --needed gnome-themes-extra kvantum-qt5 \
 sudo pacman -S --noconfirm --needed zathura zathura-pdf-poppler \
     zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting \
     neovim fzf starship eza bat htop tmux man-db ripgrep fd lazygit jq unzip \
-    pacman-contrib inetutils
+    pacman-contrib inetutils git-filter-repo \
+    impala
+# Programming tools
+sudo pacman -S --noconfirm --needed mdformat mdformat-tables libvips
 
 # yay
 if ! command -v yay >/dev/null 2>&1; then
@@ -89,6 +92,8 @@ git remote set-url origin "$DOTFILES_URL_SSH"
 mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share"
+mkdir -p "$HOME/.local/share/applications"
+mkdir -p "$HOME/.local/share/applications/icons"
 mkdir -p "$HOME/.ssh"
 stow shared
 if [[ -d "$(hostname)" ]]; then

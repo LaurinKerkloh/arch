@@ -51,7 +51,7 @@ Use the `archinstall` command to install Arch. Make sure to select/set the follo
 
 - Mirrors and repositories: Germany
 - Disk configuration: Use the default partitioning layout for your main disk
-- Disk > File system: Choose btrfs with default structure and compression enabled
+- Disk > File system: Choose btrfs with a default subvolume layout and compression enabled
 - Disk > Disk encryption: Enable LUKS encryption, set a password and select the main partition to enable the encryption of it
 - Hostname: Set a hostname
 - Authentication > Root password: Set a password
