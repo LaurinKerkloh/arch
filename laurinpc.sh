@@ -3,7 +3,6 @@
 set -ex
 
 sudo pacman -S --noconfirm --needed ddcutil
-yay -S --noconfirm --needed --answerdiff N nvidia-580xx-dkms nvidia-580xx-utils lib32-nvidia-580xx-utils
 
 # if [ ! -e "/etc/modules-load.d/nct6775.conf" ]; then
 #     echo nct6775 | sudo tee /etc/modules-load.d/nct6775.conf

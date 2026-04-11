@@ -40,6 +40,25 @@ fi
 # Update the system
 sudo pacman -Syu --noconfirm
 
+# yay
+if ! command -v yay >/dev/null 2>&1; then
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay
+    makepkg -si --noconfirm
+    cd "$INSTALLATION_DIRECTORY"
+fi
+
+# Install NVIDIA drivers
+if [[ "$(hostname)" == "laurinpc" ]]; then
+    MODULES_LINE=$(grep '^MODULES=' /etc/mkinitcpio.conf)
+    if [[ "$MODULES_LINE" != *"nvidia"* ]]; then
+      sed -i '/^MODULES=/ s/)/ nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkinitcpio.conf
+    fi
+    sudo pacman -S --noconfirm --needed linux-headers
+    yay -S --noconfirm --needed --answerdiff N nvidia-580xx-dkms nvidia-580xx-utils lib32-nvidia-580xx-utils
+fi
+
+
 # Install all the packages
 # Always needed
 sudo pacman -S --noconfirm --needed base-devel git
@@ -64,14 +83,6 @@ sudo pacman -S --noconfirm --needed zathura zathura-pdf-poppler \
     impala
 # Programming tools
 sudo pacman -S --noconfirm --needed mdformat mdformat-tables libvips
-
-# yay
-if ! command -v yay >/dev/null 2>&1; then
-    git clone https://aur.archlinux.org/yay.git /tmp/yay
-    cd /tmp/yay
-    makepkg -si --noconfirm
-    cd "$INSTALLATION_DIRECTORY"
-fi
 
 # AUR applications
 yay -S --noconfirm --needed --answerdiff N localsend

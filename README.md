@@ -68,7 +68,7 @@ Inside the newly booted system, run these commands to obtain the installation sc
 
 ```shell
 sudo pacman -S git neovim
-git clone https://github.com/drjole/arch.git
+git clone https://github.com/laurinkerkloh/arch.git
 ```
 
 Change into the cloned directory and adjust the values in `config.sh` as needed:
