@@ -40,6 +40,11 @@ fi
 # Update the system
 sudo pacman -Syu --noconfirm
 
+# Always needed
+sudo pacman -S --noconfirm --needed base-devel git
+
+# Install all the packages
+
 # yay
 if ! command -v yay >/dev/null 2>&1; then
     git clone https://aur.archlinux.org/yay.git /tmp/yay
@@ -48,7 +53,9 @@ if ! command -v yay >/dev/null 2>&1; then
     cd "$INSTALLATION_DIRECTORY"
 fi
 
-# Install NVIDIA drivers
+# Graphics
+sudo pacman -S --noconfirm --needed mesa lib32-mesa 
+# Install NVIDIA drivers on laurinpc
 if [[ "$(hostname)" == "laurinpc" ]]; then
     MODULES_LINE=$(grep '^MODULES=' /etc/mkinitcpio.conf)
     if [[ "$MODULES_LINE" != *"nvidia"* ]]; then
@@ -56,14 +63,12 @@ if [[ "$(hostname)" == "laurinpc" ]]; then
     fi
     sudo pacman -S --noconfirm --needed linux-headers
     yay -S --noconfirm --needed --answerdiff N nvidia-580xx-dkms nvidia-580xx-utils lib32-nvidia-580xx-utils
+else
+# Install AMD drivers
+sudo pacman -S --noconfirm --needed vulkan-radeon lib32-vulkan-radeon
 fi
 
 
-# Install all the packages
-# Always needed
-sudo pacman -S --noconfirm --needed base-devel git
-# Graphics
-sudo pacman -S --noconfirm --needed mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon
 # Audio
 sudo pacman -S --noconfirm --needed pipewire pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack wireplumber
 # Hyprland
