@@ -54,12 +54,12 @@ if ! command -v yay >/dev/null 2>&1; then
 fi
 
 # Graphics
-sudo pacman -S --noconfirm --needed mesa lib32-mesa 
+sudo pacman -S --noconfirm --needed mesa lib32-mesa
 # Install NVIDIA drivers on laurinpc
 if [[ "$(hostname)" == "laurinpc" ]]; then
     MODULES_LINE=$(grep '^MODULES=' /etc/mkinitcpio.conf)
     if [[ "$MODULES_LINE" != *"nvidia"* ]]; then
-      sed -i '/^MODULES=/ s/)/ nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkinitcpio.conf
+      sudo sed -i '/^MODULES=/ s/)/ nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkinitcpio.conf
     fi
     sudo pacman -S --noconfirm --needed linux-headers
     yay -S --noconfirm --needed --answerdiff N nvidia-580xx-dkms nvidia-580xx-utils lib32-nvidia-580xx-utils
