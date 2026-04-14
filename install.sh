@@ -76,7 +76,8 @@ sudo pacman -S --noconfirm --needed hyprland uwsm libnewt xdg-desktop-portal-hyp
     hyprpolkitagent hypridle hyprpaper waybar rofi dunst hyprlock wl-clipboard hyprsunset grim slurp qt5-wayland qt6-wayland
 # Desktop applications
 sudo pacman -S --noconfirm --needed alacritty firefox thunderbird nautilus sushi ffmpegthumbnailer discord pavucontrol \
-    gimp inkscape loupe libreoffice-still nextcloud-client gnome-keyring signal-desktop vlc vlc-plugin-ffmpeg steam
+    gimp inkscape loupe libreoffice-still nextcloud-client gnome-keyring signal-desktop vlc vlc-plugin-ffmpeg steam keepassxc chromium
+
 # Theming
 sudo pacman -S --noconfirm --needed gnome-themes-extra kvantum-qt5 \
     noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono-nerd ttf-font-awesome otf-font-awesome
@@ -156,14 +157,15 @@ sudo pacman -S --noconfirm --needed blueman bluez bluez-utils
 sudo systemctl enable --now bluetooth.service
 
 # Development environments
-sudo pacman -S --noconfirm --needed mise
+sudo pacman -S --noconfirm --needed mise pre-commit
 mise trust "$HOME/.dotfiles/shared/.config/mise/config.toml"
 mise use -g usage
 mise use -g node
 mise use -g ruby
 
-# reditus
-sudo pacman -S --noconfirm --needed pre-commit mkcert postgresql keepassxc chromium
+# PHP dependencies
+sudo pacman -S --noconfigrm --needed gd re2c libsodium libzip
+mise use -g php
 
 # Make sure the initramfs is rebuilt at least once after the installation
 sudo mkinitcpio -P
