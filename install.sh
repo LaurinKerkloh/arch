@@ -156,16 +156,17 @@ gsettings set org.gnome.desktop.interface icon-theme "Yaru-purple-dark"
 sudo pacman -S --noconfirm --needed blueman bluez bluez-utils
 sudo systemctl enable --now bluetooth.service
 
-# Development environments
-sudo pacman -S --noconfirm --needed mise pre-commit
-mise trust "$HOME/.dotfiles/shared/.config/mise/config.toml"
-mise use -g usage
-mise use -g node
-mise use -g ruby
+# Development dependencies
+# reditus (ruby)
+sudo pacman -S --noconfirm --needed pre-commit libvips imagemagick openslide
 
-# PHP dependencies
+# nerou (php)
 sudo pacman -S --noconfigrm --needed gd re2c libsodium libzip
-mise use -g php
+
+# install mise and tools specified in mise.toml
+sudo pacman -S --noconfirm --needed mise
+mise trust "$HOME/.dotfiles/shared/.config/mise/config.toml"
+mise install
 
 # Make sure the initramfs is rebuilt at least once after the installation
 sudo mkinitcpio -P
