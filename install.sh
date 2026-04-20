@@ -156,6 +156,9 @@ gsettings set org.gnome.desktop.interface icon-theme "Yaru-purple-dark"
 sudo pacman -S --noconfirm --needed blueman bluez bluez-utils
 sudo systemctl enable --now bluetooth.service
 
+gsettings set org.blueman.general plugin-list "['!ShowConnected', '!StatusIcon']"
+
+
 # Development dependencies
 # reditus (ruby)
 sudo pacman -S --noconfirm --needed pre-commit bitwarden-cli libvips imagemagick openslide
