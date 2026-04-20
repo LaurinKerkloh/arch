@@ -158,7 +158,7 @@ sudo systemctl enable --now bluetooth.service
 
 # Development dependencies
 # reditus (ruby)
-sudo pacman -S --noconfirm --needed pre-commit libvips imagemagick openslide
+sudo pacman -S --noconfirm --needed pre-commit bitwarden-cli libvips imagemagick openslide
 
 # nerou (php)
 sudo pacman -S --noconfigrm --needed gd re2c libsodium libzip
