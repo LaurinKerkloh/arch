@@ -160,6 +160,8 @@ gsettings set org.blueman.general plugin-list "['!ShowConnected', '!StatusIcon']
 
 
 # Development dependencies
+# general
+sudo pacman -S --noconfirm --needed prettier
 # reditus (ruby)
 sudo pacman -S --noconfirm --needed pre-commit bitwarden-cli libvips imagemagick openslide
 
