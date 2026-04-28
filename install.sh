@@ -82,8 +82,7 @@ sudo pacman -S --noconfirm --needed alacritty firefox thunderbird nautilus sushi
 sudo pacman -S --noconfirm --needed gnome-themes-extra kvantum-qt5 \
     noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono-nerd ttf-font-awesome otf-font-awesome
 # Terminal applications
-sudo pacman -S --noconfirm --needed zathura zathura-pdf-poppler \
-    zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting \
+sudo pacman -S --noconfirm --needed zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting \
     neovim fzf starship eza bat htop tmux man-db ripgrep fd lazygit jq unzip \
     pacman-contrib inetutils git-filter-repo \
     impala
